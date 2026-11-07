@@ -1,0 +1,274 @@
+<!doctype html>
+<html lang="pl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Jak AI zrewolucjonizowało moją firmę – ebook</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Ebook Anny Krasoń: 30 poleceń AI, które oszczędzają czas i pieniądze w małej firmie.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap">
+<style>
+/* Layout: podstrona kursu — hero z kartą podsumowania (fakty, cena, przycisk), program, co otrzymujesz, dla kogo, prowadząca, zaproszenie */
+:root{
+  --bg:#fbfaf8; --bg-alt:#f2f6f9; --ink:#2a2c30; --muted:#6c7178; --blue:#5aa9d6; --blue-ink:#2f7fae;
+  --pink:#eea3c4; --line:#e2e5e8; --dark:#22262b; --on-dark:#f4f2ee;
+  --serif:"Cormorant Garamond", "Times New Roman", Georgia, serif;
+  --sans:"Jost", "Helvetica Neue", Arial, sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#16181b; --bg-alt:#1c2126; --ink:#efece6; --muted:#a3a8ae; --blue:#7cc0e6; --blue-ink:#8fcbec;
+    --pink:#f0aeca; --line:#2c3137; --dark:#0f1114; --on-dark:#efece6; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#16181b; --bg-alt:#1c2126; --ink:#efece6; --muted:#a3a8ae; --blue:#7cc0e6; --blue-ink:#8fcbec;
+  --pink:#f0aeca; --line:#2c3137; --dark:#0f1114; --on-dark:#efece6; color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-weight:300;font-size:17px;line-height:1.75}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
+.wrap{max-width:1180px;margin:0 auto;padding-left:max(24px,env(safe-area-inset-left,0px));padding-right:max(24px,env(safe-area-inset-right,0px))}
+p{margin:0}
+a{color:var(--blue-ink)}
+h1,h2,h3{font-family:var(--serif);font-weight:300;margin:0;text-wrap:balance;line-height:1.1}
+h2{font-size:clamp(2rem,4.4vw,3.2rem);text-transform:uppercase;letter-spacing:.14em}
+h3{font-size:1.7rem;font-weight:400;letter-spacing:.05em;text-transform:uppercase}
+.kicker{font-weight:400;font-size:.74rem;letter-spacing:.32em;text-transform:uppercase;color:var(--blue-ink)}
+.rule{width:72px;height:0;border:0;border-top:2px dotted var(--blue);margin:0}
+.btn{display:inline-flex;align-items:center;justify-content:center;font-family:var(--sans);font-weight:400;font-size:.78rem;letter-spacing:.24em;text-transform:uppercase;padding:17px 34px;text-decoration:none;border:1px solid var(--ink);color:var(--ink);background:transparent;transition:background .3s,color .3s}
+.btn:hover{background:var(--ink);color:var(--bg)}
+.btn-fill{background:var(--blue-ink);border-color:var(--blue-ink);color:#fff}
+.btn-fill:hover{background:var(--ink);border-color:var(--ink);color:var(--bg)}
+.btn:focus-visible,a:focus-visible{outline:2px solid var(--pink);outline-offset:4px}
+
+header.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:9;background:color-mix(in srgb,var(--bg) 94%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:16px}
+.mono{font-family:var(--serif);font-weight:300;font-size:1.9rem;letter-spacing:.04em;color:var(--ink);text-decoration:none;line-height:1;display:flex;align-items:center;gap:14px}
+.mono i{font-style:italic;color:var(--blue-ink)}
+.mono small{font-family:var(--sans);font-size:.62rem;letter-spacing:.3em;text-transform:uppercase;color:var(--muted);border-left:1px solid var(--line);padding-left:14px}
+.nav-links{display:flex;gap:34px}
+.nav-links a{font-size:.72rem;letter-spacing:.24em;text-transform:uppercase;color:var(--ink);text-decoration:none;font-weight:400}
+.nav-links a:hover{color:var(--blue-ink)}
+@media (max-width:860px){.nav-links{display:none}}
+
+/* hero */
+.hero{padding-block:64px 104px}
+.hero-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:72px;align-items:center}
+.hero-text{display:flex;flex-direction:column;gap:28px;min-width:0}
+.back{font-size:.72rem;letter-spacing:.24em;text-transform:uppercase;text-decoration:none;color:var(--muted)}
+.back:hover{color:var(--blue-ink)}
+.hero h1{font-size:clamp(2.4rem,5.4vw,4.4rem);text-transform:uppercase;letter-spacing:.1em;line-height:1.05}
+.tagline{font-family:var(--serif);font-style:italic;font-weight:300;font-size:clamp(1.5rem,2.6vw,2rem);line-height:1.3}
+.tagline em{color:var(--blue-ink)}
+.hero .lead{color:var(--muted);max-width:32em}
+.hero-ctas{display:flex;flex-wrap:wrap;gap:14px}
+.photo{position:relative;min-width:0}
+.pic{display:block;width:100%;height:auto}
+
+.photo-frame{background:var(--bg-alt);aspect-ratio:4/5;max-width:100%;display:flex;align-items:center;justify-content:center;text-align:center;padding:32px;color:var(--muted);font-size:.9rem}
+.photo::before{content:"";position:absolute;inset:-18px 18px 18px -18px;border:1px solid var(--blue);pointer-events:none}
+@media (max-width:900px){.hero-grid{grid-template-columns:1fr;gap:56px}.photo{margin-left:18px}.hero{padding-block:40px 80px}}
+
+section{padding-block:110px}
+.head{display:flex;flex-direction:column;gap:22px;align-items:center;text-align:center;max-width:46em;margin:0 auto 72px}
+.head p{color:var(--muted);font-size:1.05rem}
+
+/* dla kogo */
+.forwho{background:var(--bg-alt)}
+.who-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:2px;background:var(--line);border:1px solid var(--line)}
+.who-list div{background:var(--bg);padding:36px 30px;display:flex;flex-direction:column;gap:10px;min-width:0}
+.who-list b{font-family:var(--serif);font-weight:400;font-size:1.35rem;line-height:1.25}
+.who-list p{color:var(--muted);font-size:.95rem}
+
+/* trasa */
+.route{position:relative;max-width:980px;margin:0 auto;display:flex;flex-direction:column;gap:64px}
+.route::before{content:"";position:absolute;left:23px;top:24px;bottom:24px;border-left:2px dotted var(--blue)}
+.stop{position:relative;display:grid;grid-template-columns:48px 1fr;gap:32px}
+.pin{width:48px;height:48px;border-radius:50%;background:var(--bg);border:1px solid var(--blue);display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:1.4rem;color:var(--blue-ink);position:relative;z-index:1}
+.stop.last .pin{background:var(--blue-ink);border-color:var(--blue-ink);color:#fff}
+.card{background:var(--bg);border:1px solid var(--line);padding:40px 40px 36px;display:flex;flex-direction:column;gap:18px;min-width:0}
+.stop.last .card{border-color:var(--blue)}
+.card .eyebrow{display:flex;flex-wrap:wrap;gap:8px 18px;font-size:.7rem;letter-spacing:.24em;text-transform:uppercase;color:var(--muted)}
+.card .eyebrow span:first-child{color:var(--blue-ink)}
+.card .wish{font-family:var(--serif);font-style:italic;font-size:1.35rem;line-height:1.35;color:var(--blue-ink)}
+.card .desc{color:var(--muted);max-width:42em}
+.card ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:10px 28px}
+.card li{display:flex;gap:12px;align-items:baseline;font-size:.97rem}
+.card li::before{content:"";flex:none;width:6px;height:6px;border-radius:50%;background:var(--blue);transform:translateY(-2px)}
+.card li.bonus::before{background:var(--pink)}
+.sub-h{font-size:.7rem;letter-spacing:.24em;text-transform:uppercase;color:var(--muted);margin-top:4px}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:2px;background:var(--line);border:1px solid var(--line)}
+.facts div{background:var(--bg-alt);padding:16px 18px;display:flex;flex-direction:column;gap:2px}
+.facts small{font-size:.64rem;letter-spacing:.22em;text-transform:uppercase;color:var(--muted)}
+.facts span{font-family:var(--serif);font-size:1.2rem;line-height:1.3}
+.price{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 18px;padding-top:6px}
+.price b{font-family:var(--serif);font-weight:400;font-size:2.4rem;line-height:1}
+.price span{color:var(--muted);font-size:.92rem}
+.card .cta{display:flex;flex-wrap:wrap;gap:12px;padding-top:6px}
+.next{color:var(--muted);font-family:var(--serif);font-style:italic;font-size:1.2rem;padding-left:80px}
+@media (max-width:640px){
+  .route::before{left:17px}
+  .stop{grid-template-columns:36px 1fr;gap:16px}
+  .pin{width:36px;height:36px;font-size:1.1rem}
+  .card{padding:28px 22px}
+  .next{padding-left:52px}
+}
+
+/* dalsza podróż */
+.further{max-width:980px;margin:96px auto 0;padding-top:64px;border-top:2px dotted var(--blue);display:flex;flex-direction:column;gap:36px}
+.further-head{display:flex;flex-direction:column;gap:14px;text-align:center;align-items:center}
+.further-head p{color:var(--muted);max-width:34em}
+.mini-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--line);border:1px solid var(--line)}
+.mini{background:var(--bg);padding:28px 26px;display:flex;flex-direction:column;gap:8px;min-width:0}
+.mini b{font-family:var(--serif);font-weight:400;font-size:1.35rem;line-height:1.2}
+.mini p{color:var(--muted);font-size:.93rem}
+.mini span{margin-top:auto;padding-top:8px;font-size:.64rem;letter-spacing:.24em;text-transform:uppercase;color:var(--blue-ink);display:flex;align-items:center;gap:8px}
+.mini span::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--pink)}
+.further-cta{text-align:center}
+@media (max-width:860px){.mini-grid{grid-template-columns:1fr 1fr}}
+@media (max-width:520px){.mini-grid{grid-template-columns:1fr}}
+
+/* trenerki */
+.team{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:40px}
+.person{display:flex;flex-direction:column;gap:14px;min-width:0}
+.person .ph{background:var(--bg-alt);aspect-ratio:3/4;max-width:100%;display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:.85rem;text-align:center;padding:20px}
+.person b{font-family:var(--serif);font-weight:400;font-size:1.5rem;line-height:1.2}
+.person small{font-size:.66rem;letter-spacing:.24em;text-transform:uppercase;color:var(--blue-ink)}
+.person p{color:var(--muted);font-size:.95rem}
+@media (max-width:860px){.team{grid-template-columns:1fr}.person .ph{aspect-ratio:auto;min-height:200px}}
+
+/* zaproszenie */
+.invite{background:var(--dark);color:var(--on-dark);text-align:center}
+.invite .kicker{color:var(--blue)}
+.invite blockquote{margin:24px auto 36px;max-width:22em;font-family:var(--serif);font-style:italic;font-weight:300;font-size:clamp(1.8rem,3.6vw,2.6rem);line-height:1.3}
+.invite .btn{border-color:var(--on-dark);color:var(--on-dark)}
+.invite .btn:hover{background:var(--on-dark);color:var(--dark)}
+.invite .contact{margin-top:28px;font-size:.9rem;color:color-mix(in srgb,var(--on-dark) 70%,transparent)}
+.invite .contact span,.invite .contact a{text-decoration:none;font-family:var(--serif);font-size:1.25rem;color:var(--on-dark);user-select:all}
+
+footer{background:var(--dark);color:color-mix(in srgb,var(--on-dark) 55%,transparent);font-size:.78rem;border-top:1px solid color-mix(in srgb,var(--on-dark) 12%,transparent)}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;padding-block:28px}
+footer a{color:inherit}
+
+/* 4 kroki */
+.journey{display:grid;grid-template-columns:repeat(4,1fr);gap:0 18px;counter-reset:k}
+.journey div{padding:18px 8px 0 0;border-top:1px solid var(--blue);position:relative;display:flex;flex-direction:column;gap:2px;min-width:0}
+.journey div::before{content:"";position:absolute;top:-4px;left:0;width:7px;height:7px;border-radius:50%;background:var(--blue)}
+.journey div:last-child::before{background:var(--pink)}
+.journey small{counter-increment:k;font-size:.64rem;letter-spacing:.24em;text-transform:uppercase;color:var(--muted)}
+.journey small::after{content:" " counter(k)}
+.journey b{font-family:var(--serif);font-weight:400;font-size:1.35rem}
+.journey p{color:var(--muted);font-size:.88rem;line-height:1.5}
+@media (max-width:700px){.journey{grid-template-columns:1fr 1fr;row-gap:24px}}
+/* metoda */
+.method{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;background:var(--line);border:1px solid var(--line)}
+.method div{background:var(--bg);padding:36px 28px;display:flex;flex-direction:column;gap:10px;min-width:0}
+.method small{font-family:var(--serif);font-style:italic;font-size:1.1rem;color:var(--blue-ink)}
+.method b{font-family:var(--serif);font-weight:400;font-size:1.6rem;letter-spacing:.06em;text-transform:uppercase}
+.method p{color:var(--muted);font-size:.95rem}
+@media (max-width:860px){.method{grid-template-columns:1fr 1fr}}
+@media (max-width:480px){.method{grid-template-columns:1fr}}
+/* prowadząca */
+.guide{display:grid;grid-template-columns:1fr 1.2fr;gap:88px;align-items:center}
+.guide .ph{background:var(--bg-alt);aspect-ratio:3/4;max-width:100%;display:flex;align-items:center;justify-content:center;text-align:center;color:var(--muted);font-size:.9rem;padding:24px}
+.guide-text{display:flex;flex-direction:column;gap:20px;min-width:0}
+.guide-text p{color:var(--muted);max-width:34em}
+@media (max-width:860px){.guide{grid-template-columns:1fr;gap:48px}.guide .ph{aspect-ratio:auto;min-height:240px}}
+
+.pic{display:block;width:100%;height:auto}
+
+/* karta podsumowania w hero */
+.summary{border:1px solid var(--blue);background:var(--bg);padding:36px 34px;display:flex;flex-direction:column;gap:20px;min-width:0;position:relative}
+.summary::before{content:"";position:absolute;inset:-14px 14px 14px -14px;border:1px solid var(--line);z-index:-1}
+.summary .facts{grid-template-columns:1fr 1fr}
+.summary .btn{width:100%}
+.summary .note{font-size:.85rem;color:var(--muted)}
+.price s{color:var(--muted);font-size:1.1rem}
+/* program */
+.program{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:2px;background:var(--line);border:1px solid var(--line);counter-reset:p}
+.program div{background:var(--bg);padding:34px 30px;display:flex;flex-direction:column;gap:10px;min-width:0}
+.program small{counter-increment:p;font-family:var(--serif);font-style:italic;font-size:1.1rem;color:var(--blue-ink)}
+.program small::before{content:counter(p,decimal-leading-zero)}
+.program b{font-family:var(--serif);font-weight:400;font-size:1.4rem;line-height:1.25}
+.program p{color:var(--muted);font-size:.95rem}
+.forwho .program div{background:var(--bg)}
+/* pakiet */
+.pack{max-width:860px;margin:0 auto;border:1px solid var(--line);background:var(--bg)}
+.pack-row{display:flex;justify-content:space-between;gap:20px;padding:18px 28px;border-bottom:1px solid var(--line);align-items:baseline}
+.pack-row span:first-child{min-width:0}
+.pack-row span:last-child{font-family:var(--serif);font-size:1.2rem;white-space:nowrap}
+.pack-row.bonus span:first-child::before{content:"";display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--pink);margin-right:12px;transform:translateY(-2px)}
+.pack-row.total{background:var(--bg-alt)}
+.pack-row.total span{font-weight:400}
+.pack-row.yours{border-bottom:0}
+.pack-row.yours span{font-family:var(--serif);font-size:1.6rem;color:var(--blue-ink)}
+.pack-cta{text-align:center;margin-top:40px;display:flex;flex-direction:column;align-items:center;gap:14px}
+.pack-cta p{color:var(--muted);font-size:.92rem;max-width:34em}
+/* kroki po zapisie */
+.steps{max-width:860px;margin:0 auto;display:flex;flex-direction:column;gap:0;counter-reset:s}
+.steps div{display:grid;grid-template-columns:56px 1fr;gap:20px;padding:22px 0;border-bottom:1px dotted var(--blue)}
+.steps div::before{counter-increment:s;content:counter(s);width:44px;height:44px;border-radius:50%;border:1px solid var(--blue);display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:1.3rem;color:var(--blue-ink)}
+.steps b{font-family:var(--serif);font-weight:400;font-size:1.3rem;display:block}
+.steps p{color:var(--muted);font-size:.95rem}
+@media (max-width:640px){.summary{padding:28px 22px}.pack-row{padding:16px 18px}.summary .facts{grid-template-columns:1fr}}
+</style>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="mono" href="index.html">A<i>K</i><small>Anna Krasoń</small></a>
+    <nav class="nav-links" aria-label="Jak AI zrewolucjonizowało moją firmę – ebook">
+      <a href="#w-srodku">W środku</a><a href="#dla-kogo">Dla kogo</a><a href="#prowadzaca">Autorka</a>
+      <a href="biznes.html">Akademia Liderek – Biznes w ruchu</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div class="hero-text">
+        <a class="back" href="biznes.html#trasa">← Akademia Liderek – Biznes w ruchu</a>
+        <span class="kicker">Ebook · PDF</span>
+        <h1>Jak AI zrewolucjonizowało moją firmę</h1>
+        <hr class="rule">
+        <p class="tagline">30 poleceń AI, które <em>oszczędzają mi czas i pieniądze</em></p>
+        <p class="lead">Prawdziwe sytuacje z mojej firmy i gotowe polecenia, które przeniesiesz do swojej. Nie znajdziesz tu technicznych nowinek. Znajdziesz słowa, które możesz skopiować jeszcze dziś.</p>
+      </div>
+      <aside class="summary" aria-label="Najważniejsze informacje">
+        <div class="facts"><div><small>Format</small><span>PDF, 19 stron</span></div><div><small>Polecenia</small><span>30 gotowych</span></div><div><small>Obszary</small><span>5 obszarów firmy</span></div><div><small>Dostęp</small><span>od razu po zakupie</span></div></div>
+        <div class="price"><b>69 zł</b><span>ebook w PDF</span></div>
+        <a class="btn btn-fill" href="mailto:akademia@justdance.pl?subject=Chc%C4%99%20kupi%C4%87%20ebook%20o%20AI">Kupuję ebook</a>
+      </aside>
+    </div>
+  </section>
+  <section class="forwho" id="w-srodku">
+    <div class="wrap"><div class="head"><span class="kicker">W środku</span><h2>Pięć obszarów Twojej firmy</h2><hr class="rule"><p>Przy każdym poleceniu pokazuję punkt wyjścia, to, co zyskujesz, i to, jak wygląda to u mnie. Potem dostajesz gotowe polecenie i jedną wskazówkę.</p></div><div class="program"><div><small></small><b>Sprzedaż i oferty</b><p>Oferty szyte na miarę klienta, Twój Dysk jako źródło wiedzy, porównanie z konkurencją i ogłoszenia.</p></div><div><small></small><b>Zespół i procedury</b><p>Procedury z notatek, umowy, raporty dla pracowników, rekrutacja i przypomnienia mailowe.</p></div><div><small></small><b>Marketing</b><p>Newsletter, rolki z nagrań, wizytówka w Google, program poleceń i landing page.</p></div><div><small></small><b>Zajęcia i wydarzenia</b><p>Korekta wystąpień, listy zadań przed wydarzeniem, nowe zabawy i maile po wydarzeniu.</p></div><div><small></small><b>Porządek w firmie</b><p>Opłacalność sezonu, szukanie dofinansowań, problemy techniczne i baza wiedzy o firmie.</p></div><div><small></small><b>7 zasad</b><p>Jak pracować z AI mądrze i bezpiecznie, żeby oszczędzało Ci czas, a decyzje zostawały przy Tobie.</p></div></div></div>
+  </section>
+  <section id="dla-kogo">
+    <div class="wrap"><div class="head"><span class="kicker">Dla kogo</span><h2>Ten ebook jest dla Ciebie, jeśli…</h2><hr class="rule"></div><div class="who-list"><div><b>Prowadzisz małą firmę</b><p>usługową, animacyjną albo szkołę tańca i chcesz odzyskać godziny tygodniowo.</p></div><div><b>Jesteś instruktorką</b><p>i chcesz szybciej przygotowywać oferty, maile i materiały.</p></div><div><b>Dopiero zaczynasz z AI</b><p>i chcesz wiedzieć, o co możesz je poprosić, na konkretnych przykładach.</p></div></div><div class="pack-cta" style="margin-top:56px"><a class="btn btn-fill" href="mailto:akademia@justdance.pl?subject=Chc%C4%99%20kupi%C4%87%20ebook%20o%20AI">Kupuję ebook</a></div></div>
+  </section>
+  <section id="prowadzaca">
+    <div class="wrap guide">
+      <img class="pic" src="img/anna-krason.jpg" alt="Anna Krasoń" width="1100" height="1461" loading="lazy">
+      <div class="guide-text"><span class="kicker">Autorka ebooka</span><h2>Anna Krasoń</h2><hr class="rule"><p>Od 18 lat prowadzę Akademię Tańca i Animacji Just Dance w Gdańsku: dwa studia tańca, zajęcia w żłobkach i przedszkolach, animacje, półkolonie i eventy dla firm.</p><p>Z ChatGPT i Gemini korzystam, odkąd się pojawiły. Przełom przyniósł mi Claude: asystent, który czyta moje dokumenty i maile, przygotowuje gotowe pliki i oddaje mi czas. W tym ebooku pokazuję, jak pracuje dla mnie i dla mojego zespołu.</p></div>
+    </div>
+  </section>
+
+  <section class="invite" id="kontakt">
+    <div class="wrap">
+      <span class="kicker">Pierwszy krok</span>
+      <blockquote>Twoja podróż z AI zaczyna się od pierwszego polecenia.</blockquote>
+      <a class="btn" href="mailto:akademia@justdance.pl?subject=Chc%C4%99%20kupi%C4%87%20ebook%20o%20AI">Kupuję ebook</a>
+      <p class="contact">Masz pytania? Napisz: <a href="mailto:akademia@justdance.pl">akademia@justdance.pl</a> albo zadzwoń: <a href="tel:+48731007408">731 007 408</a></p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Akademia Tańca i Animacji Anna Krasoń Just Dance · ul. Czarny Dwór 10/27, 80-365 Gdańsk · NIP 9570712423</span>
+    <a href="index.html">annakrason.justdance.pl</a>
+  </div>
+</footer>
